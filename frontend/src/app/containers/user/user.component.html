@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="container shadow p-3 mb-5 rounded">
+        <div class="row">
+            <div class="col-md-5">
+                <form role="form" (submit)="register($event)">
+                    <fieldset>
+                        <p class="text-uppercase pull-center">Si no estas registado, completá tus datos</p>
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control input-lg" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control input-lg" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control input-lg" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password2" class="form-control input-lg" placeholder="Repite tu contraseña">
+                        </div>
+                        <input type="submit" class="btn btn-md btn-primary" value="Registrate">
+                    </fieldset>
+                    <div class="message" *ngIf="message"> {{message}} </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <form  on-submit="login($event)">
+                    <fieldset>
+                        <p class="text-uppercase">Si ya estás registrado:</p>
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" class="form-control input-lg"
+                                placeholder="Nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg"
+                                placeholder="Contraseña">
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-md btn-primary" value="Entrar">
+                        </div>
+                    </fieldset>
+                    <div class="message" *ngIf="message"> {{message}} </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

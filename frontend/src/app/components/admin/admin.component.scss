@@ -1,0 +1,49 @@
+@import '../../colors.scss';
+
+main {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+
+  .sidebar {
+    background-color: $colorGrey;
+    max-width: 140px;
+    border-right: 1px solid rgb(189, 189, 189);
+  }
+
+  .sidebar-sticky {
+    padding-top: 10px;
+    height: 100vh;
+  }
+
+  .nav-link {
+    color: $colorGreen;
+    font-weight: bold;
+  }
+
+  .nav-item {
+    border-bottom: 1px solid rgb(189, 189, 189);
+  }
+
+  .container {
+    margin-top: 25px;
+    width: fit-content;
+  }
+
+  .table {
+    width: 700px;
+  }
+
+  img {
+    height: 45px;
+    width: 40px;
+  }
+
+  tr {
+    height: 60px;
+  }
+
+  td {
+    padding: 0;
+    align-items: center;
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../colors.scss';
+
+body {
+  background-color: #eee;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.container {
+  padding: 50px;
+  border: 1px solid $colorGrey;
+  border-radius: 20px;
+}
+
+#title {
+  font-family: 'Lobster', cursive;
+}
+
+fieldset {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}

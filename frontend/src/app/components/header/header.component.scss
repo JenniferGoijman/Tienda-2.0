@@ -1,0 +1,30 @@
+@import '../../colors.scss';
+
+img {
+    width: 50px;
+    margin: 4px;
+}
+
+.navbar {
+    background-color: $colorGreen;
+}
+
+.navbar-brand {
+    width: 140px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: $colorWhite;
+    margin-left: 25px;
+}
+
+.form-control {
+    margin-left: 25px;
+}
+.btn {
+    margin-right: 25px;
+}

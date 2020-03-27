@@ -1,0 +1,32 @@
+<div id="formOrder">
+    <div class="formOrder">
+        <div class="headerOrder">
+            <h3>Pedido</h3>
+            <select id="statusOrder">
+                <option value="pending">Pending</option>
+                <option value="processing">Processing</option>
+                <option value="dispatched">Dispatched</option>
+                <option value="closed">Closed</option>
+            </select>
+        </div>
+        <div class="boxOrders">
+        </div>
+        <div class="divButtons">
+            <button id="insertOrder" onclick="insertOrder()">Agregar</button>
+            <button id="modifyOrder" onclick="modifyOrder()">Guardar</button>
+            <button id="deleteOrder" onclick="deleteOrder()">Eliminar</button>
+        </div>
+        <div class="boxAddProduct">
+            <div id="productsDropdown" class="dropdown-content">
+                <input class="form-control" id="searchProducts" placeholder="Ingrese el nombre del producto..."
+                    onkeyup="getProductsByQuery(event)">
+                <div class="divListProducts"></div>
+            </div>
+        </div>
+    </div>
+    <div class="orders">
+        <h3>Lista de Pedidos</h3>
+        <div class="boxAllOrders">
+            <ul class="list-group pedidos"> </ul>
+        </div>
+    </div>

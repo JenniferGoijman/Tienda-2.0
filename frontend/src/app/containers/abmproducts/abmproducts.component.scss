@@ -1,0 +1,57 @@
+#formProduct {
+    display: flex;
+    justify-content: center;
+}
+
+.formProduct {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 10px;
+    width: 280px;
+    height: 290px;
+    margin: 20px 10px;
+}
+
+.formProduct h3 {
+    margin-left: 5px;
+}
+
+#nameProduct,
+#priceProduct,
+#imageProduct,
+#categoryProduct {
+    margin: 9px 5px;
+    padding-left: 5px;
+}
+
+#insertProduct,
+#modifyProduct,
+#deleteProduct {
+    width: 80px;
+    padding: 0;
+}
+
+.productToCRUD {
+    border: 3px dashed black;
+    padding: 10px;
+    width: 190px;
+    height: 290px;
+    margin: 20px 0;
+}
+
+.productToCRUD h4 {
+    opacity: 0.75;
+    margin: 10px;
+    line-height: 40px;
+    font-size: 17px;
+}
+
+.btnCloseProduct {
+    width: 20px;
+    display: flex;
+    justify-items: flex-end;
+    position: absolute;
+    z-index: 9999;
+    margin: 5px;
+}

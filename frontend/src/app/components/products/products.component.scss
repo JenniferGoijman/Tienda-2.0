@@ -1,0 +1,43 @@
+@import '../../../styles.scss';
+
+main {
+    display: grid;
+    grid-template-columns: 125px 1fr;
+
+    .categories {
+        width: 125px;
+    }
+    
+    .categories:hover {
+        cursor: pointer;
+    }
+    
+    .divProducts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 160px);
+        margin: 0.9em 15px;
+        grid-gap: 10px;
+        justify-content: center;
+    }
+    
+    .card {
+        width: 10rem;
+        height: 15rem;
+    }
+    
+    .card:hover {
+        cursor: pointer;
+    }
+    
+    .card-body {
+        height: 7px;
+        display: inline-flex;
+        align-items: flex-start;
+        padding: 0 0 0 5px;
+        overflow: hidden;
+    }
+    
+    .card-img-top {
+        height: 175px;
+    }  
+}
