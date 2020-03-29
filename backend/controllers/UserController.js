@@ -5,6 +5,11 @@ const env = process.env.NODE_ENV || 'development';
 const { jwt_secret } = require('../config/config.json')[env];
 
 const UserController = {
+    getAll(req, res) {
+        User.findAll({
+            })
+            .then(users => res.send(users))
+    },
     async register(req, res) {
         try {
             const password = await bcrypt.hash(req.body.password, 9);

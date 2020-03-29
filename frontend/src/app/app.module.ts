@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +15,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './containers/user/user.component';
 import { AbmproductsComponent } from './containers/abmproducts/abmproducts.component';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AdminCategoriesComponent } from './components/admin-categories/admin-categories.component';
+import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
+import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 
 
 @NgModule({
@@ -24,10 +31,17 @@ import { AbmproductsComponent } from './containers/abmproducts/abmproducts.compo
     HomeComponent,
     UserComponent,
     AbmproductsComponent,
-    AdminComponent
+    AdminComponent,
+    AdminProductsComponent,
+    AdminCategoriesComponent,
+    AdminOrdersComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
     AppRoutingModule,
     HttpClientModule
   ],

@@ -1,0 +1,39 @@
+<main class="mainAdmin">
+    <app-admin></app-admin>
+    <div class="container-fluid">
+        <h3></h3>
+        <div class="button">
+            <h2>Usuarios</h2>
+            <button type="button" class="btn" (click)="insertUser()">+ Nuevo usuario</button>
+        </div>
+        <h3></h3>
+        <h3></h3>
+        <div class="container shadow p-3 mb-5 rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="align-middle text-center">#</th>
+                        <th class="align-middle text-center">Nombre de usuario</th>
+                        <th class="align-middle text-center">Email</th>
+                        <th class="align-middle text-center">Rol</th>
+                        <th class="align-middle text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td class="align-middle text-center">{{user.id}}</td>
+                        <td class="align-middle text-center">{{user.username}}</td>
+                        <td class="align-middle text-center">{{user.email}}</td>
+                        <td class="align-middle text-center">{{user.role}}</td>
+                        <th class="align-middle text-center" scope="col">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
+                                (click)="updateUser(user.id)">
+                            <img src='../../../assets/img/eliminar.png' class="icon-sm"
+                                (click)="deleteUser(user.id)">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

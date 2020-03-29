@@ -1,37 +1,14 @@
-<main>
-    <nav class="col-md-2 d-md-block sidebar">
-        <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Categorías</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Usuarios</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="container shadow p-3 mb-5 rounded">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>                        
-                        <th class="align-middle text-center" scope="col">Id</th>
-                        <th class="align-middle text-center" scope="col">Nombre</th>
-                        <th class="align-middle text-center" scope="col">Precio</th>
-                        <th class="align-middle text-center" scope="col">Categoría</th>
-                        <th class="align-middle text-center" scope="col">Imágen</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let product of products">
-                        <td class="align-middle text-center">{{product.id}}</td>
-                        <td class="align-middle text-center">{{product.name}}</td>
-                        <td class="align-middle text-center">€{{product.price}}</td>
-                        <td class="align-middle text-center">{{product.Category.name}}</td>
-                        <td class="align-middle text-center"><img src={{product.image}} class="card-img-top" alt="..." *ngIf="product.image"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<nav class="col-md-2 d-md-block sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="admin/products">
+                    <img src="../../../assets/img/productos.png" class="icon">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin/categories">
+                    <img src="../../../assets/img/categorias.png" class="icon">Categorías</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin/orders">
+                    <img src="../../../assets/img/pedidos.png" class="icon">Pedidos</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin/users">
+                    <img src="../../../assets/img/usuarios.png" class="icon">Usuarios</a></li>
+        </ul>
     </div>
-</main>
+</nav>

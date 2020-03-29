@@ -1,0 +1,37 @@
+<main class="mainAdmin">
+    <app-admin></app-admin>
+    <div class="container-fluid">
+        <h3></h3>
+        <div class="button">
+            <h2>Pedidos</h2>
+            <button type="button" class="btn" (click)="insertOrder()">+ Nuevo pedido</button>
+        </div>
+        <h3></h3>
+        <h3></h3>
+        <div class="container shadow p-3 mb-5 rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="align-middle text-center">#</th>
+                        <th class="align-middle text-center">Fecha de entrega</th>
+                        <th class="align-middle text-center">Estado</th>
+                        <th class="align-middle text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td class="align-middle text-center">{{order.id}}</td>
+                        <td class="align-middle text-center">{{order.deliveryDate}}</td>
+                        <td class="align-middle text-center">{{order.status}}</td>
+                        <td class="align-middle text-center" scope="col">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
+                                (click)="updateOrder(order.id)">
+                            <img src='../../../assets/img/eliminar.png' class="icon-sm"
+                                (click)="deleteOrder(order.id)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,43 @@
+<main class="mainAdmin">
+    <app-admin></app-admin>
+    <div class="container-fluid">
+        <h3></h3>
+        <div class="button">
+            <h2>Productos</h2>
+            <button type="button" class="btn" (click)="insertProduct()">+ Nuevo producto</button>
+        </div>
+        <h3></h3>
+        <h3></h3>
+        <div class="container shadow p-3 mb-5 rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="align-middle text-center">#</th>
+                        <th class="align-middle text-center">Nombre</th>
+                        <th class="align-middle text-center">Precio</th>
+                        <th class="align-middle text-center">Categoría</th>
+                        <th class="align-middle text-center">Imagen</th>
+                        <th class="align-middle text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td class="align-middle text-center">{{product.id}}</td>
+                        <td class="align-middle text-center">{{product.name}}</td>
+                        <td class="align-middle text-center">€{{product.price}}</td>
+                        <td class="align-middle text-center">{{product.Category.name}}</td>
+                        <td class="align-middle text-center">
+                            <img src={{product.image}} class="productImage" alt="..." *ngIf="product.image">
+                        </td>
+                        <th class="align-middle text-center" scope="col">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
+                                (click)="updateProduct(product.id)">
+                            <img src='../../../assets/img/eliminar.png' class="icon-sm"
+                                (click)="deleteProduct(product.id)">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

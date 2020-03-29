@@ -1,12 +1,8 @@
 @import '../../colors.scss';
 
-main {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-
   .sidebar {
     background-color: $colorGrey;
-    max-width: 140px;
+    max-width: 190px;
     border-right: 1px solid rgb(189, 189, 189);
   }
 
@@ -15,35 +11,19 @@ main {
     height: 100vh;
   }
 
+  .icon {
+    width: 30px;
+    margin: 0 10px;
+  }
+
   .nav-link {
-    color: $colorGreen;
-    font-weight: bold;
+    color: $colorOrange;
+    font-size: 18px;
+    padding: 5px 0;
   }
 
   .nav-item {
     border-bottom: 1px solid rgb(189, 189, 189);
+    font-weight: 500;
+    margin-top: 15px;
   }
-
-  .container {
-    margin-top: 25px;
-    width: fit-content;
-  }
-
-  .table {
-    width: 700px;
-  }
-
-  img {
-    height: 45px;
-    width: 40px;
-  }
-
-  tr {
-    height: 60px;
-  }
-
-  td {
-    padding: 0;
-    align-items: center;
-  }
-}

@@ -1,7 +1,7 @@
 <main>
-    <!-- <ul class="list-group list-group-flush categories">
-        <li class="list-group-item" id=0 (click)="getAllProducts()">Todos</li> 
-        <li class="list-group-item" id={{category.id}} (click)="getProductsByCategory(category)" *ngFor="let category of categories">
+    <ul class="list-group list-group-flush categories">
+        <li class="list-group-item" id=0 (click)="getAll()">Todos</li> 
+        <li class="list-group-item" id={{category.id}} (click)="getProductsByCategory(category.id)" *ngFor="let category of categories">
             {{category.name}}</li>
     
     </ul>
@@ -15,5 +15,5 @@
                 <p class="card-text">{{product.name}}</p>
             </div>
         </div>
-    </div> -->
+    </div>
 </main>

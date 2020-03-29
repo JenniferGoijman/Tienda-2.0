@@ -4,5 +4,6 @@ const {authentication,isAdmin} = require('../middleware/authentication.js')
 router.post('/register',UserController.register);
 router.post('/login',UserController.login);
 router.get('/info',authentication, UserController.getInfo);
+router.get('/',UserController.getAll);
 
 module.exports = router

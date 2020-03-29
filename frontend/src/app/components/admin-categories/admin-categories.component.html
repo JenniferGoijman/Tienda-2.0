@@ -1,0 +1,36 @@
+<main class="mainAdmin">
+    <app-admin></app-admin>
+
+    <div class="container-fluid">
+        <h3></h3>
+        <div class="button">
+            <h2>Categorías</h2>
+            <button type="button" class="btn" (click)="insertCategory()">+ Nueva categoría</button>
+        </div>
+        <h3></h3>
+        <h3></h3>
+        <div class="container shadow p-3 mb-5 rounded">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="align-middle text-center">#</th>
+                        <th class="align-middle text-center">Nombre</th>
+                        <th class="align-middle text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories">
+                        <td class="align-middle text-center">{{category.id}}</td>
+                        <td class="align-middle text-center">{{category.name}}</td>
+                        <td class="align-middle text-center" scope="col">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
+                                (click)="updateCategory(category.id)">
+                            <img src='../../../assets/img/eliminar.png' class="icon-sm"
+                                (click)="deleteCategory(category.id)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

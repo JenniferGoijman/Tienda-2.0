@@ -1,0 +1,48 @@
+@import '../../colors.scss';
+
+.container-fluid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.btn {
+  border-radius: 20px;
+  background-color: $colorOrange;
+  color: $colorWhite;
+}
+
+.container {
+  margin-top: 5px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.table {
+  width: 700px;
+}
+
+tr {
+  height: 60px;
+}
+
+td {
+  padding: 0;
+  align-items: center;
+}
+
+.icon-sm {
+  width: 16px;
+  margin: 0 5px;
+}
+
+.icon-sm:hover {
+  cursor: pointer;
+}

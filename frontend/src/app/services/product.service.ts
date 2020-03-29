@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class ProductService {
 
   constructor(public httpClient: HttpClient) { }
@@ -12,11 +12,9 @@ export class ProductService {
   getAll() {
     return this.httpClient.get('http://localhost:3000/products')
   }
-  // getProductsByCategory(category) {
-  //   this.httpClient.get('http://localhost:3000/products/category/' + category.id)
-  //     .subscribe(res => { this.products = res },
-  //       error => console.error(error));
-  // }
+  getProductsByCategory(categoryId) {
+    return this.httpClient.get('http://localhost:3000/products/category/' + categoryId)
+  }
   insert(product:object):Observable<any>{
     return this.httpClient.post('http://localhost:3000/products',product);
   }
