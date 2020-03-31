@@ -14,4 +14,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logOut(){
+    localStorage.removeItem('authToken');
+    this.userService['user'] = {};
+  }
+
+
 }

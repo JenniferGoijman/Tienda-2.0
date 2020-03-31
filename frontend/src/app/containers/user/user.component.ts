@@ -43,17 +43,12 @@ export class UserComponent implements OnInit {
 
   login(event) {
     event.preventDefault();
-    // const form = event.target;
-    // const user = {
-    //   username: form.username.value,
-    //   password: form.password.value,
-    // }
-    // this.loading=true;
+    this.loading=true;
     this.userService.login(this.user)
     .subscribe(
       (res: HttpResponse<any>) => {
           this.message = res['message'];
-          // this.loading=false;
+          this.loading=false;
           setTimeout(() => this.message = "", 2500);
           const redirectRoute = res['user']['role']==='admin' ? '/admin' : '/products';
           this.userService.setUser(res['user']);
