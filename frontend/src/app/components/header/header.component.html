@@ -9,6 +9,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" routerLink="" routerLinkActive="active-link"
+                    *ngIf="!userService['user']['role']"
                     [routerLinkActiveOptions]="{exact:true}">Inicio<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
@@ -16,8 +17,8 @@
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/admin" routerLinkActive="active-link">Admin<span
-                        class="sr-only"></span></a>
+                <a class="nav-link" routerLink="/admin" routerLinkActive="active-link"
+                    *ngIf="admins.includes(userService['user']['role'])">Admin<span class="sr-only"></span></a>
             </li>
         </ul>
         <!-- <form class="form-inline my-2 my-lg-0">
@@ -27,7 +28,8 @@
         <div class="LoggedIn row" *ngIf="userService['user']['id']">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="" routerLinkActive="active-link">Hola {{userService['user']['username']}}
+                    <a class="nav-link" routerLink="" routerLinkActive="active-link">Hola
+                        {{userService['user']['username']}}
                         <span class="sr-only"></span></a>
                 </li>
             </ul>

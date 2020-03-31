@@ -4,30 +4,49 @@ main {
   display: grid;
   grid-template-columns: 125px 1fr;
 
-  .categories {
-    width: 90px;
-  }
-
-  .categories:hover {
-    cursor: pointer;
-  }
-
   .sidebar {
     background-color: $colorGrey;
     max-width: 170px;
     border-right: 1px solid rgb(189, 189, 189);
+
+    .sidebar-sticky {
+      padding: 20px;
+      height: 100vh;
+
+      .categories {
+        width: 90px;
+
+        .nav-item {
+          border-bottom: 1px solid rgb(189, 189, 189);
+          font-weight: 500;
+          margin: 8px 0;
+          padding: 5px 0;
+        }
+      }
+
+      .categories:hover {
+        cursor: pointer;
+      }
+    }
   }
 
-  .sidebar-sticky {
-    padding: 20px;
-    height: 100vh;
-  }
+  .container-fluid {
+    grid-template-rows: 100px;
 
-  .nav-item {
-    border-bottom: 1px solid rgb(189, 189, 189);
-    font-weight: 500;
-    margin: 8px 0;
-    padding: 5px 0;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 15px 0 15px;
+
+      form {
+        height: 75px;
+
+        .form-control {
+          padding-left: 10px;
+        }
+      }
+    } 
   }
 
   .divProducts {
@@ -36,26 +55,26 @@ main {
     margin: 0.9em 15px;
     grid-gap: 10px;
     justify-content: center;
-  }
 
-  .card {
-    width: 10rem;
-    height: 15rem;
-  }
+    .card {
+      width: 10rem;
+      height: 15rem;
 
-  .card:hover {
-    cursor: pointer;
-  }
+      .card-img-top {
+        height: 175px;
+      }
+  
+      .card-body {
+        height: 7px;
+        display: inline-flex;
+        align-items: flex-start;
+        padding: 0 0 0 5px;
+        overflow: hidden;
+      }
+    }
 
-  .card-body {
-    height: 7px;
-    display: inline-flex;
-    align-items: flex-start;
-    padding: 0 0 0 5px;
-    overflow: hidden;
-  }
-
-  .card-img-top {
-    height: 175px;
+    .card:hover {
+      cursor: pointer;
+    }
   }
 }

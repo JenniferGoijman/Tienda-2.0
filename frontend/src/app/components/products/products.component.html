@@ -9,14 +9,23 @@
         </div>
     </nav>
 
-    <div class="divProducts">
-        <div class="card" id={{product.id}} *ngFor="let product of products">
-            <img src={{product.image}} class="card-img-top" alt="..." *ngIf="product.image">
-            <img src="../../../assets/img/{{product.Category.name.toLowerCase()}}.png" class="card-img-top" alt="..."
-                *ngIf="!product.image">
-            <div class="card-body">€{{product.price}}</div>
-            <div class="card-body">
-                <p class="card-text">{{product.name}}</p>
+    <div class="container-fluid">
+        <div class="title">
+            <form class="form-inline my-2 my-lg-0" (submit)="searchProducts()">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Nombre del producto"
+                    [(ngModel)]="search" (keyup)="searchProducts()">
+            </form>
+        </div>
+
+        <div class="divProducts">
+            <div class="card" id={{product.id}} *ngFor="let product of products">
+                <img src={{product.image}} class="card-img-top" alt="..." *ngIf="product.image">
+                <img src="../../../assets/img/{{product.Category.name.toLowerCase()}}.png" class="card-img-top"
+                    alt="..." *ngIf="!product.image">
+                <div class="card-body">€{{product.price}}</div>
+                <div class="card-body">
+                    <p class="card-text">{{product.name}}</p>
+                </div>
             </div>
         </div>
     </div>
