@@ -69,7 +69,7 @@ const UserController = {
             });
         }
     },
-    async getInfo(req,res){
+    getInfo(req,res){
         res.send(req.user);
     }
 }

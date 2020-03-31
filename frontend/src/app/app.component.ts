@@ -15,10 +15,15 @@ export class AppComponent {
     const token = localStorage.getItem('authToken');
     if (token) {
       this.userService.getInfo(token)
-      .subscribe(res =>{
+        .subscribe(res => {
           this.userService.setUser(res);
-          this.userService.setToken(token);})
-      ;
+          this.userService.setToken(token);
+        },
+          error => {
+            console.log(error)
+            localStorage.removeItem('authToken')
+          }
+        );
     }
   }
 }

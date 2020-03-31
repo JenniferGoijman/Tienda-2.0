@@ -24,5 +24,19 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
         </form> -->
+        <div class="LoggedIn row" *ngIf="userService['user']['id']">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" routerLinkActive="active-link">Hola {{userService['user']['username']}}
+                        <span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" routerLinkActive="active-link">Cerrar sesión
+                        <span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
