@@ -1,9 +1,11 @@
 <main class="mainAdmin">
     <app-admin></app-admin>
+    
     <div class="container-fluid">
         <h3></h3>
         <div class="title">
             <h2>Productos</h2>
+            <h6 class="message" *ngIf="message">{{message}}</h6>
             <button type="button" class="btn" (click)="openModal(0)">+ Nuevo producto</button>
         </div>
         <h3></h3>

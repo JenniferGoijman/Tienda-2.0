@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalAdminProductsComponent } from '../modal-admin-products/modal-admin-products.component';
-
-
 @Component({
   selector: 'app-admin-products',
   templateUrl: './admin-products.component.html',
@@ -36,22 +34,19 @@ export class AdminProductsComponent implements OnInit {
     if (!this.product.id) {
       modalDialog.afterClosed().subscribe(result => {
         if (result) {
-          // this.product.name = result.name;
-          // this.product.price = result.price;
-          // this.product.image = result.image;
-          // this.product.CategoryId = result.CategoryId;
-          console.log(result)
-          console.log(this.product)
-    //       this.insertProduct(this.product);
+          this.product = result;
+          this.insertProduct(this.product);
         }
       });
     } else {
-    //   modalDialog.afterClosed().subscribe(result => {
-    //     if (result) {
-    //       this.product = { id: this.product.id, name: result };
-    //       this.updateProduct(this.product);
-    //     }
-    //   });
+      modalDialog.afterClosed().subscribe(result => {
+        if (result) {
+          this.product = result;
+          this.product.id = product.id;
+          console.log(this.product);
+          this.updateProduct(this.product);
+        }
+      });
     }
   }
 

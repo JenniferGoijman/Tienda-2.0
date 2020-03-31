@@ -2,11 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CategoryService } from 'src/app/services/category.service';
 
-export interface DialogData {
-  name: string;
-  price: number;
-  image: string;
-  CategoryId: number;
+export interface product {
+  name: string,
+  price: number,
+  image: string,
+  CategoryId: number
 }
 
 @Component({
@@ -19,7 +19,7 @@ export class ModalAdminProductsComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ModalAdminProductsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, public categoryService: CategoryService) {
+    @Inject(MAT_DIALOG_DATA) public product: product, public categoryService: CategoryService) {
   }
 
   ngOnInit(): void {

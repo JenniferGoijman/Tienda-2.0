@@ -48,7 +48,13 @@ const ProductController = {
         Product.create({
                 ...req.body
             })
-            .then(product => res.send(product))
+            .then(product => res.send({
+                product,
+                message: 'Producto creado con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para crear el producto'
+            }))
     },
     modify(req, res) {
         Product.update({
@@ -58,8 +64,13 @@ const ProductController = {
                     id: req.params.id
                 }
             })
-            .then(product =>
-                res.send(product))
+            .then(product => res.send({
+                product,
+                message: 'Producto modificado con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para modificar el producto'
+            }))
     },
     delete(req, res) {
         Product.destroy({
@@ -67,7 +78,13 @@ const ProductController = {
                     id: req.params.id
                 }
             })
-            .then(() => res.send('El producto se ha eliminado correctamente'))
+            .then(product => res.send({
+                product,
+                message: 'Producto eliminado con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para eliminar el producto'
+            }))
     }
 }
 

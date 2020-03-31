@@ -1,26 +1,25 @@
 <h1 mat-dialog-title>Producto</h1>
-<hr>
-<div mat-dialog-content style="display: flex; flex-direction: column">
-    <mat-form-field>
-        <mat-label>Nombre del producto</mat-label>
-        <input matInput [(ngModel)]="data.name">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Precio del producto</mat-label>
-        <input matInput [(ngModel)]="data.price" type="number">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Imagen del producto</mat-label>
-        <input matInput [(ngModel)]="data.image">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Categoría del producto</mat-label>
-        <mat-select [(ngModel)]="data.CategoryId">
-            <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>
+    <div mat-dialog-content style="display: flex; flex-direction: column; width: fit-content;">
+        <mat-form-field>
+            <mat-label>Nombre del producto</mat-label>
+            <input matInput [(ngModel)]="product.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Precio del producto</mat-label>
+            <input matInput [(ngModel)]="product.price" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Imagen del producto</mat-label>
+            <input matInput [(ngModel)]="product.image">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Categoría del producto</mat-label>
+            <mat-select [(ngModel)]="product.CategoryId">
+                <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 <div mat-dialog-actions>
     <button mat-button (click)="closeModal()">Cancelar</button>
-    <button mat-button class="aceptar" [mat-dialog-close]="data.name" cdkFocusInitial>Aceptar</button>
+    <button mat-button class="aceptar" [mat-dialog-close]="product" cdkFocusInitial>Aceptar</button>
 </div>
