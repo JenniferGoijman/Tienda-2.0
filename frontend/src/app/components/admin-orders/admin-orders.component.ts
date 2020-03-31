@@ -14,7 +14,8 @@ export class AdminOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderService.getAll()
-      .subscribe(res => { this.orders = res; },
+      .subscribe(res => { this.orders = res; 
+      console.log(this.orders)},
         error => console.error(error));
   }
 

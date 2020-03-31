@@ -15,6 +15,7 @@
                         <th class="align-middle text-center">#</th>
                         <th class="align-middle text-center">Fecha de entrega</th>
                         <th class="align-middle text-center">Estado</th>
+                        <th class="align-middle text-center">Productos</th>
                         <th class="align-middle text-center"></th>
                     </tr>
                 </thead>
@@ -23,6 +24,7 @@
                         <td class="align-middle text-center">{{order.id}}</td>
                         <td class="align-middle text-center">{{order.deliveryDate}}</td>
                         <td class="align-middle text-center">{{order.status}}</td>
+                        <td class="align-middle text-center">Detalle ({{order.Products.length}})</td>
                         <td class="align-middle text-center" scope="col">
                             <img src='../../../assets/img/lapiz.png' class="icon-sm"
                                 (click)="updateOrder(order.id)">

@@ -2,9 +2,9 @@
     <app-admin></app-admin>
     <div class="container-fluid">
         <h3></h3>
-        <div class="button">
+        <div class="title">
             <h2>Productos</h2>
-            <button type="button" class="btn" (click)="insertProduct()">+ Nuevo producto</button>
+            <button type="button" class="btn" (click)="openModal(0)">+ Nuevo producto</button>
         </div>
         <h3></h3>
         <h3></h3>
@@ -31,7 +31,7 @@
                         </td>
                         <th class="align-middle text-center" scope="col">
                             <img src='../../../assets/img/lapiz.png' class="icon-sm"
-                                (click)="updateProduct(product.id)">
+                                (click)="openModal(product)">
                             <img src='../../../assets/img/eliminar.png' class="icon-sm"
                                 (click)="deleteProduct(product.id)">
                         </th>

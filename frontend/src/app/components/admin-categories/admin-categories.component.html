@@ -3,9 +3,10 @@
 
     <div class="container-fluid">
         <h3></h3>
-        <div class="button">
+        <div class="title">
             <h2>Categorías</h2>
-            <button type="button" class="btn" (click)="insertCategory()">+ Nueva categoría</button>
+            <h6 class="message" *ngIf="message">{{message}}</h6>
+            <button type="button" class="btn" (click)="openModal(0)">+ Nueva categoría</button>
         </div>
         <h3></h3>
         <h3></h3>
@@ -24,7 +25,7 @@
                         <td class="align-middle text-center">{{category.name}}</td>
                         <td class="align-middle text-center" scope="col">
                             <img src='../../../assets/img/lapiz.png' class="icon-sm"
-                                (click)="updateCategory(category.id)">
+                                (click)="openModal(category)">
                             <img src='../../../assets/img/eliminar.png' class="icon-sm"
                                 (click)="deleteCategory(category.id)">
                         </td>

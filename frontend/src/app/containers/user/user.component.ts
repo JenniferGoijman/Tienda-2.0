@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,7 +11,7 @@ export class UserComponent implements OnInit {
   public message: string;
   public errorMsg: string;
   public loading:boolean=false;
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +50,11 @@ export class UserComponent implements OnInit {
           this.message = res.message;
           this.loading=false;
           setTimeout(() => this.message = "", 2500);
+          const redirectRoute = res.user.role==='admin' ? '/admin' : '/products';
+          this.userService.setUser(res.user);
+          this.userService.setToken(res.token);
+          localStorage.setItem('authToken', res['token']);
+          setTimeout(()=> { this.router.navigate([redirectRoute])})
         },
         err => {
           this.errorMsg = err.error.message

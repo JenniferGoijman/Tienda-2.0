@@ -1,10 +1,14 @@
 <main>
-    <ul class="list-group list-group-flush categories">
-        <li class="list-group-item" id=0 (click)="getAll()">Todos</li> 
-        <li class="list-group-item" id={{category.id}} (click)="getProductsByCategory(category.id)" *ngFor="let category of categories">
-            {{category.name}}</li>
-    
-    </ul>
+    <nav class="col-md-2 d-md-block sidebar">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column categories">
+                <li class="nav-item" id=0 (click)="getAll()">Todos</li>
+                <li class="nav-item" id={{category.id}} (click)="getProductsByCategory(category.id)"
+                    *ngFor="let category of categories">{{category.name}}</li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="divProducts">
         <div class="card" id={{product.id}} *ngFor="let product of products">
             <img src={{product.image}} class="card-img-top" alt="..." *ngIf="product.image">

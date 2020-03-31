@@ -1,4 +1,6 @@
-const {  Category } = require('../models/index.js');
+const {
+    Category
+} = require('../models/index.js');
 const CategoryController = {
     getAll(req, res) {
         Category.findAll()
@@ -14,31 +16,46 @@ const CategoryController = {
     },
     insert(req, res) {
         Category.create({
-            name: req.body.name
-        })
-        .then(categories=>res.send(categories))
-        .catch(err => res.send('problema para insertar'))
+                name: req.body.name
+            })
+            .then(category => res.send({
+                category,
+                message: 'Categoría creada con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para crear la categoría'
+            }))
     },
     modify(req, res) {
         Category.update({
-            ...req.body
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(categories => res.send(categories))
-        .catch(err => res.send('problema para modificar'))
+                ...req.body
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(category => res.send({
+                category,
+                message: 'Categoría modificada con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para modificar la categoría'
+            }))
     },
     delete(req, res) {
         Category.destroy({
-            where: {
-              id: req.params.id
-            }
-          })
-          .then(()=>res.send('El producto se ha eliminado correctamente'))
-          .catch(err => res.send('problema para eliminar'))
-      } 
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(category => res.send({
+                category,
+                message: 'Categoría eliminada con éxito'
+            }))
+            .catch(err => res.send({
+                message: 'Hubo un problema para eliminar la categoría'
+            }))
+    }
 }
 
 module.exports = CategoryController;

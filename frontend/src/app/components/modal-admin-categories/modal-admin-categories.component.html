@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Categoría</h1><hr>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Nombre de la categoría</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeModal()">Cancelar</button>
+  <button mat-button class="aceptar" [mat-dialog-close]="data.name" cdkFocusInitial>Aceptar</button>
+</div>
