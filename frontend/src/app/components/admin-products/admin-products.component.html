@@ -1,12 +1,24 @@
 <main class="mainAdmin">
     <app-admin></app-admin>
-    
+
     <div class="container-fluid">
         <h3></h3>
-        <div class="title">
-            <h2>Productos</h2>
-            <h6 class="message" *ngIf="message">{{message}}</h6>
-            <button type="button" class="btn" (click)="openModal(0)">+ Nuevo producto</button>
+        <div>
+            <div class="row">
+                <h2>Productos</h2>
+                <h6 class="message" *ngIf="message">{{message}}</h6>
+                <button type="button" class="btn" (click)="openModal(0)">+ Nuevo producto</button>
+            </div>
+            <div class="row">
+                <form class="form-inline my-2 my-lg-0" (submit)="searchProducts()">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Filtre por nombre"
+                        [(ngModel)]="search" (keyup)="searchProducts()">
+                </form>
+                <select class="form-control mr-sm-2" (change)="getProductsByCategory()" [(ngModel)]="category">
+                    <option [value]="0">Todos</option>
+                    <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                </select>
+            </div>
         </div>
         <h3></h3>
         <h3></h3>
@@ -31,12 +43,11 @@
                         <td class="align-middle text-center">
                             <img src={{product.image}} class="productImage" alt="..." *ngIf="product.image">
                         </td>
-                        <th class="align-middle text-center" scope="col">
-                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
-                                (click)="openModal(product)">
+                        <td class="align-middle text-center" scope="col">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm" (click)="openModal(product)">
                             <img src='../../../assets/img/eliminar.png' class="icon-sm"
                                 (click)="deleteProduct(product.id)">
-                        </th>
+                        </td>
                     </tr>
                 </tbody>
             </table>

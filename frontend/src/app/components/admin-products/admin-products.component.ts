@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalAdminProductsComponent } from '../modal-admin-products/modal-admin-products.component';
+
 @Component({
   selector: 'app-admin-products',
   templateUrl: './admin-products.component.html',
@@ -10,13 +12,28 @@ import { ModalAdminProductsComponent } from '../modal-admin-products/modal-admin
 
 export class AdminProductsComponent implements OnInit {
   public products;
+  public categories;
   public message: string;
+  public search:string;
+  public category:number;
   public product = { id: 0, name: '', price: 0, image: '', CategoryId: 0 } //agregar todos los parametros
 
-  constructor(public productService: ProductService, public matDialog: MatDialog) { }
+  constructor(public productService: ProductService, public categoryService: CategoryService, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAll();
+    this.categoryService.getAll()
+      .subscribe(res => { this.categories = res; },
+        error => console.error(error));
+  }
+  
+  searchProducts() {
+    if (!this.search) {
+      this.getAll();
+    } else {
+      this.getProductsByQuery();
+      this.category=0;
+    }
   }
 
   getAll() {
@@ -24,7 +41,21 @@ export class AdminProductsComponent implements OnInit {
       .subscribe(res => { this.products = res; },
         error => console.error(error));
   }
-
+  getProductsByCategory() {
+    if (this.category == 0) {
+      this.getAll();
+    } else {
+      this.search="";
+      return this.productService.getProductsByCategory(this.category)
+        .subscribe(res => { this.products = res; },
+          error => console.error(error));
+    }
+  }
+  getProductsByQuery() {
+    return this.productService.getProductsByQuery(this.search)
+    .subscribe(res => { this.products = res; },
+      error => console.error(error));
+  }
   openModal(product): void {
     this.product = { id: product.id, name: product.name, price: product.price, image: product.image, CategoryId: product.CategoryId };
     const dialogConfig = new MatDialogConfig();
@@ -49,7 +80,6 @@ export class AdminProductsComponent implements OnInit {
       });
     }
   }
-
   insertProduct(product) {
     this.productService.insert(product)
       .subscribe(res => {
@@ -64,7 +94,6 @@ export class AdminProductsComponent implements OnInit {
         }
       )
   }
-
   updateProduct(product) {
     this.productService.update(product)
       .subscribe(res => {
@@ -79,7 +108,6 @@ export class AdminProductsComponent implements OnInit {
         }
       )
   }
-
   deleteProduct(productId) {
     this.productService.delete(productId)
       .subscribe(res => {

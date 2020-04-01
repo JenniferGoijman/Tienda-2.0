@@ -3,51 +3,56 @@
 .container-fluid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px;
-}
-
-.title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  grid-template-rows: 110px;
   margin-top: 25px;
-}
 
-.btn {
-  border-radius: 20px;
-  background-color: $colorOrange;
-  color: $colorWhite;
-}
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 0 0;
 
-.container {
-  margin-top: 5px;
-  width: fit-content;
-  height: fit-content;
-}
+    .btn {
+      border-radius: 20px;
+      background-color: $colorOrange;
+      color: $colorWhite;
+    }
 
-.table {
-  width: 700px;
-}
+    select {
+      width: 200px;
+    }
+  }
 
-tr {
-  height: 60px;
-}
+  .container {
+    margin-top: 5px;
+    width: fit-content;
+    height: fit-content;
 
-td {
-  padding: 0;
-  align-items: center;
-}
+    .table {
+      width: 700px;
 
-.productImage {
-  height: 45px;
-  width: 40px;
-}
+      tr {
+        height: 60px;
 
-.icon-sm {
-  width: 16px;
-  margin: 0 5px;
-}
+        td {
+          padding: 0;
+          align-items: center;
 
-.icon-sm:hover {
-  cursor: pointer;
+          .productImage {
+            height: 45px;
+            width: 40px;
+          }
+
+          .icon-sm {
+            width: 16px;
+            margin: 0 5px;
+          }
+
+          .icon-sm:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }

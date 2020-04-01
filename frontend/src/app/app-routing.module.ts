@@ -7,11 +7,12 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
 import { AdminCategoriesComponent } from './components/admin-categories/admin-categories.component';
 import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate:[AdminGuard] },
   { path: 'admin/products', component: AdminProductsComponent },
   { path: 'admin/categories', component: AdminCategoriesComponent },
   { path: 'admin/orders', component: AdminOrdersComponent },

@@ -8,8 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" routerLink="" routerLinkActive="active-link"
-                    *ngIf="!userService['user']['role']"
+                <a class="nav-link" routerLink="" routerLinkActive="active-link" *ngIf="!userService['user']['role']"
                     [routerLinkActiveOptions]="{exact:true}">Inicio<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
@@ -25,12 +24,18 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
         </form> -->
+        <button type="button" class="btn btn-outline-secondary" ngbPopover="You see, I show up on hover!"
+            triggers="mouseenter:mouseleave" popoverTitle="Pop title">
+            Hover over me!
+        </button>
+        <button type="button" class="btn btn-outline-secondary mr-2" placement="bottom"
+            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on bottom">
+            Popover on bottom
+        </button>
         <div class="LoggedIn row" *ngIf="userService['user']['id']">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="" routerLinkActive="active-link">Hola
-                        {{userService['user']['username']}}
-                        <span class="sr-only"></span></a>
+                    <a class="imgUser">{{userService['user']['username'][0]}}</a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto">
