@@ -55,3 +55,7 @@ img {
 .LoggedIn {
     margin-right: 25px;
 }
+
+.dropdown-toggle::after {
+    display:none;
+}

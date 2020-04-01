@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -62,7 +62,7 @@ import { ModalAdminProductsComponent } from './components/modal-admin-products/m
     MatInputModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    //NgbModule
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,7 +13,7 @@
         <div class="title">
             <form class="form-inline my-2 my-lg-0" (submit)="searchProducts()">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Nombre del producto"
-                    [(ngModel)]="search" (keyup)="searchProducts()">
+                    [(ngModel)]="search" (keyup)="searchProducts()" (input)="searchProducts()">
             </form>
         </div>
 

@@ -20,30 +20,20 @@
                     *ngIf="admins.includes(userService['user']['role'])">Admin<span class="sr-only"></span></a>
             </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
-        <button type="button" class="btn btn-outline-secondary" ngbPopover="You see, I show up on hover!"
-            triggers="mouseenter:mouseleave" popoverTitle="Pop title">
-            Hover over me!
-        </button>
-        <button type="button" class="btn btn-outline-secondary mr-2" placement="bottom"
-            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover on bottom">
-            Popover on bottom
-        </button>
         <div class="LoggedIn row" *ngIf="userService['user']['id']">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="imgUser">{{userService['user']['username'][0]}}</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="" routerLinkActive="active-link" (click)=logOut()>Cerrar sesión
-                        <span class="sr-only"></span></a>
-                </li>
-            </ul>
+            <div class="row">
+                <div class="col">
+                    <div ngbDropdown class="d-inline-block">
+                        <a class="imgUser"  ngbDropdownToggle
+                            >
+                            {{userService['user']['username'][0]}}</a>
+
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem (click)=logOut()>Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

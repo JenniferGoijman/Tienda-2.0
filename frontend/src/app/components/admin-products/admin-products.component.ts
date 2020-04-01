@@ -14,8 +14,8 @@ export class AdminProductsComponent implements OnInit {
   public products;
   public categories;
   public message: string;
-  public search:string;
-  public category:number;
+  public search: string;
+  public category: number;
   public product = { id: 0, name: '', price: 0, image: '', CategoryId: 0 } //agregar todos los parametros
 
   constructor(public productService: ProductService, public categoryService: CategoryService, public matDialog: MatDialog) { }
@@ -26,16 +26,15 @@ export class AdminProductsComponent implements OnInit {
       .subscribe(res => { this.categories = res; },
         error => console.error(error));
   }
-  
+
   searchProducts() {
     if (!this.search) {
       this.getAll();
     } else {
       this.getProductsByQuery();
-      this.category=0;
+      this.category = 0;
     }
   }
-
   getAll() {
     this.productService.getAll()
       .subscribe(res => { this.products = res; },
@@ -45,7 +44,7 @@ export class AdminProductsComponent implements OnInit {
     if (this.category == 0) {
       this.getAll();
     } else {
-      this.search="";
+      this.search = "";
       return this.productService.getProductsByCategory(this.category)
         .subscribe(res => { this.products = res; },
           error => console.error(error));
@@ -53,8 +52,8 @@ export class AdminProductsComponent implements OnInit {
   }
   getProductsByQuery() {
     return this.productService.getProductsByQuery(this.search)
-    .subscribe(res => { this.products = res; },
-      error => console.error(error));
+      .subscribe(res => { this.products = res; },
+        error => console.error(error));
   }
   openModal(product): void {
     this.product = { id: product.id, name: product.name, price: product.price, image: product.image, CategoryId: product.CategoryId };
@@ -121,5 +120,66 @@ export class AdminProductsComponent implements OnInit {
           setTimeout(() => this.message = "", 2500);
         }
       )
+  }
+
+  public lastSortBy: string = 'a';
+  public cant: number = 0;
+  
+  sortById() {
+    if (this.lastSortBy != 'id' || this.cant % 2 === 0) {
+      this.cant = 0;
+      this.products.sort((a, b) => a.id - b.id);
+      this.cant++;
+    } else {
+      this.products.sort((b, a) => a.id - b.id);
+      this.cant++;
+    }
+    this.lastSortBy = 'id';
+  }
+  sortByName() {
+    if (this.lastSortBy != 'name' || this.cant % 2 === 0) {
+      console.log('diferente')
+      this.cant = 0;
+      this.products.sort((a, b) => { return ('' + a.name).localeCompare(b.name)});
+      this.cant++;
+    } else {
+      console.log('igual')
+      this.products.sort((b, a) => { return ('' + a.name).localeCompare(b.name)});
+      this.cant++;
+    }
+    this.lastSortBy = 'name';
+  }
+  sortByPrice() {
+    if (this.lastSortBy != 'price' || this.cant % 2 === 0) {
+      this.cant = 0;
+      this.products.sort((a, b) => a.price - b.price);
+      this.cant++;
+    } else {
+      this.products.sort((b, a) => a.price - b.price);
+      this.cant++;
+    }
+    this.lastSortBy = 'price';
+  }
+  sortByCategory() {
+    if (this.lastSortBy != 'category' || this.cant % 2 === 0) {
+      this.cant = 0;
+      this.products.sort((a, b) => { return ('' + a.Category.name).localeCompare(b.Category.name)});
+      this.cant++;
+    } else {
+      this.products.sort((b, a) => { return ('' + a.Category.name).localeCompare(b.Category.name)});
+      this.cant++;
+    }
+    this.lastSortBy = 'category';
+  }
+  sortByImage() {
+    if (this.lastSortBy != 'image' || this.cant % 2 === 0) {
+      this.cant = 0;
+      this.products.sort((a, b) => { return ('' + a.image).localeCompare(b.image)});
+      this.cant++;
+    } else {
+      this.products.sort((b, a) => { return ('' + a.image).localeCompare(b.image)});
+      this.cant++;
+    }
+    this.lastSortBy = 'image';
   }
 }

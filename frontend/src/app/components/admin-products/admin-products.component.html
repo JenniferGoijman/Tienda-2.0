@@ -12,7 +12,7 @@
             <div class="row">
                 <form class="form-inline my-2 my-lg-0" (submit)="searchProducts()">
                     <input class="form-control mr-sm-2" type="search" name="search" placeholder="Filtre por nombre"
-                        [(ngModel)]="search" (keyup)="searchProducts()">
+                        [(ngModel)]="search" (keyup)="searchProducts()" (input)="searchProducts()">
                 </form>
                 <select class="form-control mr-sm-2" (change)="getProductsByCategory()" [(ngModel)]="category">
                     <option [value]="0">Todos</option>
@@ -26,11 +26,11 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="align-middle text-center">#</th>
-                        <th class="align-middle text-center">Nombre</th>
-                        <th class="align-middle text-center">Precio</th>
-                        <th class="align-middle text-center">Categoría</th>
-                        <th class="align-middle text-center">Imagen</th>
+                        <th class="align-middle text-center" (click)="sortById()">#</th>
+                        <th class="align-middle text-center" (click)="sortByName()">Nombre</th>
+                        <th class="align-middle text-center" (click)="sortByPrice()">Precio</th>
+                        <th class="align-middle text-center" (click)="sortByCategory()">Categoría</th>
+                        <th class="align-middle text-center" (click)="sortByImage()">Imagen</th>
                         <th class="align-middle text-center"></th>
                     </tr>
                 </thead>
