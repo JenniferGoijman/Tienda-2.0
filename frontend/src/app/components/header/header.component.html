@@ -16,7 +16,7 @@
                         class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/admin" routerLinkActive="active-link"
+                <a class="nav-link" routerLink="/admin/products" routerLinkActive="active-link"
                     *ngIf="admins.includes(userService['user']['role'])">Admin<span class="sr-only"></span></a>
             </li>
         </ul>
@@ -24,10 +24,9 @@
             <div class="row">
                 <div class="col">
                     <div ngbDropdown class="d-inline-block">
-                        <a class="imgUser"  ngbDropdownToggle
-                            >
+                        <a class="imgUser" ngbPopover="{{userService['user']['email']}}"
+                            popoverTitle="{{userService['user']['username']}}" ngbDropdownToggle triggers="hover">
                             {{userService['user']['username'][0]}}</a>
-
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                             <button ngbDropdownItem (click)=logOut()>Cerrar sesión</button>
                         </div>

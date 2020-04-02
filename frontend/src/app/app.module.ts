@@ -20,7 +20,6 @@ import { UserComponent } from './containers/user/user.component';
 import { AbmproductsComponent } from './containers/abmproducts/abmproducts.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
-import { CategoriesComponent } from './components/categories/categories.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -35,7 +34,6 @@ import { ModalAdminProductsComponent } from './components/modal-admin-products/m
     AppComponent,
     HeaderComponent,
     ProductsComponent,
-    CategoriesComponent,
     OrdersComponent,
     HomeComponent,
     UserComponent,

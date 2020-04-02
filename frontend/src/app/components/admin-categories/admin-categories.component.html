@@ -3,10 +3,18 @@
 
     <div class="container-fluid">
         <h3></h3>
-        <div class="title">
-            <h2>Categorías</h2>
-            <h6 class="message" *ngIf="message">{{message}}</h6>
-            <button type="button" class="btn" (click)="openModal(0)">+ Nueva categoría</button>
+        <div>
+            <div class="row">
+                <h2>Categorías</h2>
+                <h6 class="message" *ngIf="message">{{message}}</h6>
+                <button type="button" class="btn" (click)="openModal(0)">+ Nueva categoría</button>
+            </div>
+            <div class="row">
+                <form class="form-inline my-2 my-lg-0" (submit)="searchCategories()">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Filtre por nombre"
+                        [(ngModel)]="search" (keyup)="searchCategories()" (input)="searchCategories()">
+                </form>
+            </div>
         </div>
         <h3></h3>
         <h3></h3>
@@ -14,8 +22,8 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="align-middle text-center">#</th>
-                        <th class="align-middle text-center">Nombre</th>
+                        <th class="align-middle text-center" (click)="sortById()">#</th>
+                        <th class="align-middle text-center" (click)="sortByName()">Nombre</th>
                         <th class="align-middle text-center"></th>
                     </tr>
                 </thead>
@@ -24,8 +32,7 @@
                         <td class="align-middle text-center">{{category.id}}</td>
                         <td class="align-middle text-center">{{category.name}}</td>
                         <td class="align-middle text-center" scope="col">
-                            <img src='../../../assets/img/lapiz.png' class="icon-sm"
-                                (click)="openModal(category)">
+                            <img src='../../../assets/img/lapiz.png' class="icon-sm" (click)="openModal(category)">
                             <img src='../../../assets/img/eliminar.png' class="icon-sm"
                                 (click)="deleteCategory(category.id)">
                         </td>

@@ -1,6 +1,9 @@
 const {
-    Category
+    Category,
+    Sequelize
 } = require('../models/index.js');
+const Op = Sequelize.Op;
+
 const CategoryController = {
     getAll(req, res) {
         Category.findAll()
@@ -10,6 +13,16 @@ const CategoryController = {
         Category.findAll({
                 where: {
                     id: req.params.categoryId
+                }
+            })
+            .then(categories => res.send(categories))
+    },
+    getByQuery(req, res) {
+        Category.findAll({
+                where: {
+                    name: {
+                        [Op.like]: '%'+ req.params.query +'%'
+                    }
                 }
             })
             .then(categories => res.send(categories))

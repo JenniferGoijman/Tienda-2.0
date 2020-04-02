@@ -13,10 +13,20 @@ export class AdminCategoriesComponent implements OnInit {
   public categories;
   public message: string;
   public category = { id: 0, name: '' }
+  public search: string;
+
   constructor(public categoryService: CategoryService, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAll();
+  }
+
+  searchCategories() {
+    if (!this.search) {
+      this.getAll();
+    } else {
+      this.getCategoriesByQuery();
+    }
   }
 
   getAll() {
@@ -24,7 +34,11 @@ export class AdminCategoriesComponent implements OnInit {
       .subscribe(res => { this.categories = res; },
         error => console.error(error));
   }
-
+  getCategoriesByQuery() {
+    return this.categoryService.getCategoriesByQuery(this.search)
+      .subscribe(res => { this.categories = res; },
+        error => console.error(error));
+  }
   openModal(category): void {
     this.category = { id: category.id, name: category.name };
     const dialogConfig = new MatDialogConfig();
@@ -92,5 +106,33 @@ export class AdminCategoriesComponent implements OnInit {
           setTimeout(() => this.message = "", 2500);
         }
       )
+  }
+
+  public lastSortBy: string = 'a';
+  public cant: number = 0;
+  
+  sortById() {
+    if (this.lastSortBy != 'id' || this.cant % 2 === 0) {
+      this.cant = 0;
+      this.categories.sort((a, b) => a.id - b.id);
+      this.cant++;
+    } else {
+      this.categories.sort((b, a) => a.id - b.id);
+      this.cant++;
+    }
+    this.lastSortBy = 'id';
+  }
+  sortByName() {
+    if (this.lastSortBy != 'name' || this.cant % 2 === 0) {
+      console.log('diferente')
+      this.cant = 0;
+      this.categories.sort((a, b) => { return ('' + a.name).localeCompare(b.name)});
+      this.cant++;
+    } else {
+      console.log('igual')
+      this.categories.sort((b, a) => { return ('' + a.name).localeCompare(b.name)});
+      this.cant++;
+    }
+    this.lastSortBy = 'name';
   }
 }
