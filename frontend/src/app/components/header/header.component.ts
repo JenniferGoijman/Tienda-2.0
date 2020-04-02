@@ -23,5 +23,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.removeItem('authToken');
     this.userService['user'] = {};
+    localStorage.removeItem('cart');
+    this.cartService.productsInCart = [];   
   }
 }

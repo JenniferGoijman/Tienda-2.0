@@ -31,6 +31,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ModalAdminProductsComponent } from './components/modal-admin-products/modal-admin-products.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CartComponent } from './components/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     AdminOrdersComponent,
     AdminUsersComponent,
     ModalAdminCategoriesComponent,
-    ModalAdminProductsComponent
+    ModalAdminProductsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

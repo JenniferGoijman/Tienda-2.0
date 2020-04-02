@@ -1,0 +1,26 @@
+<div class="container">
+    <div *ngIf="this.cartService.productsInCart.length==0">No se han registrado productos en tu carrito. Haz click aqui
+        y comienza tu compra!</div>
+    <form class="container shadow p-3 mb-5 rounded">
+        <div class="card-header">
+            <p>Producto</p>
+            <p>Precio</p>
+            <p>Cantidad</p>
+            <p></p>
+        </div>
+        <div class="card-body" *ngFor="let product of this.cartService.productsInCart">
+            <div><img src="{{product.image}}" class="productImage" alt="..." *ngIf="product.image">
+                <img src="assets/img/{{product.Category.name | lowercase}}.png" class="productImage" alt="..."
+                    *ngIf="!product.image">
+                {{product.name}}</div>  
+            <div>{{product.price}}</div>
+            <mat-form-field>
+                <mat-label>Cantidad</mat-label>
+                <input matInput min="0" type="number" name="{{product.id}}" ngModel>
+            </mat-form-field>
+            <div>
+                <img src='assets/img/eliminar.png' class="icon-sm" (click)="deleteProduct(product.id)">
+            </div>
+        </div>
+    </form>
+</div>

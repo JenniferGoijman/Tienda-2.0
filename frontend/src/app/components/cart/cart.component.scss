@@ -1,0 +1,16 @@
+.card-header,
+.card-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.productImage {
+    height: 55px;
+    width: 50px;
+  }
