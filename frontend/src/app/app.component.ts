@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,18 +13,16 @@ export class AppComponent {
   constructor(public userService: UserService) { }
 
   ngOnInit() {
-    const token = localStorage.getItem('authToken');
+    const token: string = localStorage.getItem('authToken');
     if (token) {
       this.userService.getInfo(token)
-        .subscribe(res => {
-          this.userService.setUser(res);
-          this.userService.setToken(token);
-        },
-          error => {
-            console.log(error)
-            localStorage.removeItem('authToken')
+        .subscribe(
+          (res: HttpResponse<object>) => this.userService.setUser(res),
+          (error: HttpErrorResponse) => {
+            console.error(error);
+            localStorage.removeItem('authToken');
           }
-        );
+        )
     }
   }
 }

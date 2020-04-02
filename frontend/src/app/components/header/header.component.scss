@@ -23,6 +23,11 @@ img {
     color: $colorOrange;
 }
 
+.imgCarrito {
+    width: 32px;
+    margin-left: 30px;
+}
+
 .navbar {
     background-color: $colorGreen;
 }
@@ -60,6 +65,6 @@ img {
     display:none;
 }
 
-.col {
-    margin-right: 100px;
+.row {
+    margin-right: 20px;
 } 

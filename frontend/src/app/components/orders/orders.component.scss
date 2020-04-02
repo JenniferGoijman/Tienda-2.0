@@ -1,107 +1,163 @@
 @import '../../../styles.scss';
 
-#formOrder {
-    display: flex;
-    justify-content: center;
-}
+.container-fluid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  
+  h2 {
+    margin: 15px 0;
+    text-align: center;
+  }
 
-.formOrder {
-    display: inline-flex;
-    flex-direction: column;
-    border: 2px solid black;
-    padding: 10px;
-    width: 280px;
-    height: fit-content;
-    margin: 20px 10px 5px 10px;
-}
-
-.headerOrder {
+  .orders {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-.boxOrders {
-    display: inline-flex;
     flex-direction: column;
-    height: 100%;
-    margin-bottom: 20px;
-}
 
-.prod {
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
-    margin-top: 10px;
-}
+    .card {
+      width: 33rem;
+      margin: 10px;
 
-.boxOrders p {
-    border: 1px solid black;
-    padding: 2px 5px;
-    width: 150px;
-    height: 30px;
-}
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        background: $colorGrey;
+      }
 
-.boxOrders input{
-    width: 50px;
-    height: 30px;
-}
+      .card-subtitle {
+        margin-top: 5px;
+      }
 
-#insertOrder,
-#modifyOrder,
-#deleteOrder {
-    width: 80px;
-    padding: 0;
-}
+      .card-text {
+        margin-left: 20px;
+        margin-bottom: 5px;
+        display: grid;
+        grid-template-columns: 60px 170px 80px 100px 120px;
+      }
 
-.boxAddProduct {
-    border-radius: 0.2em;
-    background-color: #effffb;
-    /*width: 11.5em;*/
-    margin: 0 0.5em 0 0.5em;
-    display: inline-flex;
-    flex-direction: column;
-    opacity: 1;
-    height: 2em;
-}
+      div {
+        align-items: center;
+      }
+    }
 
-.dropdown-content {
-    background-color: #f6f6f6;
-    width: 100%;
-    border: 1px solid #ddd;
-    z-index: 9999;
-}
+    .productImage {
+      height: 55px;
+      width: 50px;
+    }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+    p {
+      padding: 5px 10px;
+    }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
+    h6 {
+      padding-left: 10px;
+    }
 
-.orders {
-    border: 2px solid black;
-    padding: 10px;
-    width: 500px;
-    height: 312px;
-    margin: 20px 0;
-    overflow-y: scroll;    
-}
+  }
 
-.orders h3 {
-    opacity: 0.75;
-    line-height: 40px;
-    font-size: 17px;
-}
+  // #formOrder {
+  //     display: flex;
+  //     justify-content: center;
+  // }
 
-.btnDeleteProduct {
-    width: 20px;
-    display: flex;
-    justify-items: flex-end;
-    z-index: 9999;
-    margin: 5px;
+  // .formOrder {
+  //     display: inline-flex;
+  //     flex-direction: column;
+  //     border: 2px solid black;
+  //     padding: 10px;
+  //     width: 280px;
+  //     height: fit-content;
+  //     margin: 20px 10px 5px 10px;
+  // }
+
+  // .headerOrder {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     align-items: center;
+  // }
+
+  // .boxOrders {
+  //     display: inline-flex;
+  //     flex-direction: column;
+  //     height: 100%;
+  //     margin-bottom: 20px;
+  // }
+
+  // .prod {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     height: 30px;
+  //     margin-top: 10px;
+  // }
+
+  // .boxOrders p {
+  //     border: 1px solid black;
+  //     padding: 2px 5px;
+  //     width: 150px;
+  //     height: 30px;
+  // }
+
+  // .boxOrders input{
+  //     width: 50px;
+  //     height: 30px;
+  // }
+
+  // #insertOrder,
+  // #modifyOrder,
+  // #deleteOrder {
+  //     width: 80px;
+  //     padding: 0;
+  // }
+
+  // .boxAddProduct {
+  //     border-radius: 0.2em;
+  //     background-color: #effffb;
+  //     /*width: 11.5em;*/
+  //     margin: 0 0.5em 0 0.5em;
+  //     display: inline-flex;
+  //     flex-direction: column;
+  //     opacity: 1;
+  //     height: 2em;
+  // }
+
+  // .dropdown-content {
+  //     background-color: #f6f6f6;
+  //     width: 100%;
+  //     border: 1px solid #ddd;
+  //     z-index: 9999;
+  // }
+
+  // .dropdown-content a {
+  //     color: black;
+  //     padding: 12px 16px;
+  //     text-decoration: none;
+  //     display: block;
+  // }
+
+  // .dropdown-content a:hover {
+  //     background-color: #f1f1f1
+  // }
+
+  // .orders {
+  //     border: 2px solid black;
+  //     padding: 10px;
+  //     width: 500px;
+  //     height: 312px;
+  //     margin: 20px 0;
+  //     overflow-y: scroll;    
+  // }
+
+  // .orders h3 {
+  //     opacity: 0.75;
+  //     line-height: 40px;
+  //     font-size: 17px;
+  // }
+
+  // .btnDeleteProduct {
+  //     width: 20px;
+  //     display: flex;
+  //     justify-items: flex-end;
+  //     z-index: 9999;
+  //     margin: 5px;
+  // }
 }

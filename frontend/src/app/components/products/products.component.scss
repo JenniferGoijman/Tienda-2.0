@@ -58,17 +58,17 @@ main {
 
     .card {
       width: 10rem;
-      height: 15rem;
+      height: 16rem;
 
       .card-img-top {
         height: 175px;
       }
   
       .card-body {
-        height: 7px;
+        //height: 10px;
         display: inline-flex;
         align-items: flex-start;
-        padding: 0 0 0 5px;
+        //padding: 0 0 0 5px;
         overflow: hidden;
       }
     }
@@ -76,5 +76,14 @@ main {
     .card:hover {
       cursor: pointer;
     }
+  }
+
+  button {
+    width: 100%;
+    background-color: $colorOrange;
+  }
+
+  button:hover {
+    opacity: 0.75;
   }
 }

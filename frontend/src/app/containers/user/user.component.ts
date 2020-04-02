@@ -50,7 +50,7 @@ export class UserComponent implements OnInit {
           this.message = res['message'];
           this.loading=false;
           setTimeout(() => this.message = "", 2500);
-          const redirectRoute = res['user']['role']==='admin' ? '/admin' : '/products';
+          const redirectRoute = res['user']['role']==='admin' ? '/admin/products' : '/products';
           this.userService.setUser(res['user']);
           this.userService.setToken(res['token']);
           localStorage.setItem('authToken', res['token']);

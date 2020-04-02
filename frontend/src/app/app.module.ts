@@ -29,6 +29,8 @@ import { AdminOrdersComponent } from './components/admin-orders/admin-orders.com
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ModalAdminProductsComponent } from './components/modal-admin-products/modal-admin-products.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,9 @@ import { ModalAdminProductsComponent } from './components/modal-admin-products/m
     MatInputModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    NgbModule
+    NgbModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

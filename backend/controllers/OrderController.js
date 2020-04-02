@@ -1,7 +1,8 @@
 const {
     Order,
     Product,
-    OrderProduct
+    OrderProduct,
+    Category
 } = require('../models/index.js');
 
 const OrderController = {
@@ -20,10 +21,23 @@ const OrderController = {
             })
             .then(orders => res.send(orders))
     },
+    getByUser(req, res) {
+        Order.findAll({
+                include: [{
+                    model: Product,
+                    include: [Category]
+                }],
+                where: {
+                    UserId: req.user.id
+                }
+            })
+            .then(orders => res.send(orders))
+    },
     insert(req, res) {
         Order.create({
                 deliveryDate: req.body.deliveryDate,
-                status: req.body.status
+                status: req.body.status,
+                UserId: req.body.UserId
             })
             .then(order => {
                 req.body.products.forEach(product => {

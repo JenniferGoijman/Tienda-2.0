@@ -28,9 +28,13 @@
                             popoverTitle="{{userService['user']['username']}}" ngbDropdownToggle triggers="hover">
                             {{userService['user']['username'][0]}}</a>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem (click)=logOut()>Cerrar sesión</button>
+                            <button ngbDropdownItem routerLink="" (click)=logOut()>Cerrar sesión</button>
+                            <button ngbDropdownItem routerLink="/orders">Ver pedidos</button>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <span matBadgeColor="warn" [matBadge]="this.cartService.productsInCart?.length || null"><img src="assets/img/carrito.png" class="imgCarrito" alt="" srcset=""></span>
                 </div>
             </div>
         </div>

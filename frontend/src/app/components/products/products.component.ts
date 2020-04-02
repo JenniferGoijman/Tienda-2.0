@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -13,7 +14,7 @@ export class ProductsComponent implements OnInit {
   public categories;
   public search: string;
 
-  constructor(public productService: ProductService, public categoryService: CategoryService) { }
+  constructor(public productService: ProductService, public categoryService: CategoryService, public cartService: CartService) { }
   ngOnInit(): void {
     this.getAll();
 
@@ -21,7 +22,7 @@ export class ProductsComponent implements OnInit {
       .subscribe(res => { this.categories = res; },
         error => console.error(error));
   }
-  
+
   searchProducts() {
     if (!this.search) {
       this.getAll();
@@ -42,7 +43,12 @@ export class ProductsComponent implements OnInit {
   }
   getProductsByQuery() {
     return this.productService.getProductsByQuery(this.search)
-    .subscribe(res => { this.products = res; },
-      error => console.error(error));
+      .subscribe(res => { this.products = res; },
+        error => console.error(error));
+  }
+  addCart(product) {
+    if (this.cartService.productsInCart.find((p)=>p.id===product.id))return;
+    this.cartService.productsInCart.push(product);
+    localStorage.setItem('cart', JSON.stringify(this.cartService.productsInCart))
   }
 }

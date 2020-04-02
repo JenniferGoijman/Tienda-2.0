@@ -23,6 +23,7 @@ export class UserService {
     this.token = token;
   }
   getToken(): string {
+    //return localStorage.getItem('authToken');
     return this.token;
   }
   setUser(user: object): void {

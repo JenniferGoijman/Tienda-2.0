@@ -1,32 +1,37 @@
-<div id="formOrder">
-    <div class="formOrder">
-        <div class="headerOrder">
-            <h3>Pedido</h3>
-            <select id="statusOrder">
-                <option value="pending">Pending</option>
-                <option value="processing">Processing</option>
-                <option value="dispatched">Dispatched</option>
-                <option value="closed">Closed</option>
-            </select>
-        </div>
-        <div class="boxOrders">
-        </div>
-        <div class="divButtons">
-            <button id="insertOrder" onclick="insertOrder()">Agregar</button>
-            <button id="modifyOrder" onclick="modifyOrder()">Guardar</button>
-            <button id="deleteOrder" onclick="deleteOrder()">Eliminar</button>
-        </div>
-        <div class="boxAddProduct">
-            <div id="productsDropdown" class="dropdown-content">
-                <input class="form-control" id="searchProducts" placeholder="Ingrese el nombre del producto..."
-                    onkeyup="getProductsByQuery(event)">
-                <div class="divListProducts"></div>
+<div class="container-fluid">
+    <h3></h3>
+    <h2>Tus pedidos</h2>
+    <h3></h3>
+    <h3></h3>
+    <div class="orders">
+        <div *ngIf="this.orders.length==0">No se han registrado pedidos. Haz click aqui y comienza tu compra!</div>
+        <div class="card shadow mb-5 rounded" *ngFor="let order of this.orders">
+            <div class="card-body">
+                <div class="card-header">
+                    <div class="date">
+                        <p>Fecha de entrega</p>
+                        <p>{{order.deliveryDate | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div class="user">
+                        <p>Estado</p>
+                        <p>{{order.status}}</p>
+                    </div>
+                    <div class="order">
+                        <p>Pedido</p>
+                        <p>#{{order.id}}</p>
+                    </div>
+                </div>
+                <h6 class="card-subtitle mb-2 text-muted">Productos</h6>
+                <div class="card-text" *ngFor="let product of order.Products">
+                    <img src="{{product.image}}" class="productImage" alt="..." *ngIf="product.image">
+                    <img src="assets/img/{{product.Category.name | lowercase}}.png" class="productImage" alt="..."
+                    *ngIf="!product.image">
+                    <div>{{product.name}}</div>
+                    <div>({{product.price | currency:'EUR'}})</div>
+                    <div>x{{product.OrderProduct.units}}</div>
+                    <div>{{product.price*product.OrderProduct.units | currency:'EUR'}}</div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="orders">
-        <h3>Lista de Pedidos</h3>
-        <div class="boxAllOrders">
-            <ul class="list-group pedidos"> </ul>
-        </div>
-    </div>
+</div>

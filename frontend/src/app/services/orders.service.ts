@@ -12,4 +12,9 @@ export class OrdersService {
   getAll() {
     return this.httpClient.get('http://localhost:3000/orders')
   }
+  getByUser(token) {
+    return this.httpClient.get('http://localhost:3000/orders/user', {
+      headers: {'authorization': token}
+    })
+  }
 }
