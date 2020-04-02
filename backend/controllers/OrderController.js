@@ -37,7 +37,7 @@ const OrderController = {
         Order.create({
                 deliveryDate: req.body.deliveryDate,
                 status: req.body.status,
-                UserId: req.body.UserId
+                UserId: req.user.id
             })
             .then(order => {
                 req.body.products.forEach(product => {

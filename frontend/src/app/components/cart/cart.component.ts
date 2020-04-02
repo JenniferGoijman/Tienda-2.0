@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
+import { OrdersService } from 'src/app/services/orders.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,48 +9,44 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  $a: any;
-  constructor(public cartService:CartService) { }
+  constructor(public cartService: CartService, public userService: UserService, public ordersService: OrdersService) { }
 
   ngOnInit(): void {
   }
 
-  insertOrder (){
-    //console.log(registerForm.value)
-    // const arrProducts = []
-    // const cant = 0;
+  insertOrder(event: any) {
+    const token = localStorage.getItem('authToken')
+    const arrProducts = []
+    let i = 0;
 
-    // for (const product of this.cartService.productsInCart) {
-    //   const arrProduct = [product.id, cant]
-    // }
-    
-    // var today = new Date();
-    // const order = {
-    //   "deliveryDate": today.toLocaleDateString().split('/').reverse().join('-') + ' ' + today.toLocaleTimeString(),
-    //   "status": "pending",
-    //   "products": arrProducts
-    // }
+    for (const product of this.cartService.productsInCart) {
+      const arrProduct = [product.id, event.target[i].value]
+      arrProducts.push(arrProduct);
+      i++;
+    }
 
+    var today = new Date();
+    const order = {
+      "deliveryDate": today.toLocaleDateString().split('/').reverse().join('-') + ' ' + today.toLocaleTimeString(),
+      "status": "pending",
+      "UserId": this.userService.getUser(),
+      "products": arrProducts
+    }
+    console.log(token, order)
 
-    // const amountProduct = document.querySelector('div.boxOrders').children.length;
-    // const arrProducts = []
+    this.ordersService.insert(token, order)
+      .subscribe(res => { res; },
+        error => console.error(error));
 
-    // for (let i = 0; i < amountProduct; i++) {
-    //     const prod = document.querySelector('div.boxOrders').children[i];
-    //     const product = [
-    //         prod.id, prod.firstElementChild.nextElementSibling.value
-    //     ];
-    //     arrProducts.push(product);
-    // }
-    // var today = new Date();
-    // const order = {
-    //     "deliveryDate": today.toLocaleDateString().split('/').reverse().join('-') + ' ' + today.toLocaleTimeString(),
-    //     "status": "pending",
-    //     "products": arrProducts
-    // }
+    localStorage.removeItem('cart');
+    this.cartService.productsInCart = [];
 
   }
-
-  deleteProduct(productId) {}
-
+  
+  deleteProduct(productId, event) {
+    event.target.parentNode.parentNode.remove()
+    const productsFiltered = this.cartService.productsInCart.filter(p => p.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(productsFiltered));
+    this.cartService.productsInCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+  }
 }

@@ -17,4 +17,9 @@ export class OrdersService {
       headers: {'authorization': token}
     })
   }
+  insert(token, order): Observable<any> {
+    return this.httpClient.post('http://localhost:3000/orders', order, {
+      headers: { authorization: token }
+    });
+  }
 }

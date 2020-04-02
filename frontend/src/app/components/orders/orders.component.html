@@ -4,7 +4,10 @@
     <h3></h3>
     <h3></h3>
     <div class="orders">
-        <div *ngIf="this.orders.length==0">No se han registrado pedidos. Haz click aqui y comienza tu compra!</div>
+        <div *ngIf="this.orders.length==0">
+            <h2>No se han registrado pedidos.</h2>
+            <h3 routerLink="/products">Haz click aquí y comienza tu compra!</h3>
+        </div>
         <div class="card shadow mb-5 rounded" *ngFor="let order of this.orders">
             <div class="card-body">
                 <div class="card-header">

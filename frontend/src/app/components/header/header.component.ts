@@ -14,16 +14,18 @@ export class HeaderComponent implements OnInit {
   admins = ['admin'];
   //  matBadge = this.cartService.productsInCart;
 
-  constructor(public userService: UserService, public cartService:CartService) { }
+  constructor(public userService: UserService, public cartService: CartService) { }
 
   ngOnInit(): void {
   }
-  ngDoCheck(){console.log(this.cartService.productsInCart)}
-
-  logOut() {
-    localStorage.removeItem('authToken');
-    this.userService['user'] = {};
-    localStorage.removeItem('cart');
-    this.cartService.productsInCart = [];   
+  ngDoCheck() {
+    //console.log(this.cartService.productsInCart)
   }
-}
+
+    logOut() {
+      localStorage.removeItem('authToken');
+      this.userService['user'] = {};
+      localStorage.removeItem('cart');
+      this.cartService.productsInCart = [];
+    }
+  }

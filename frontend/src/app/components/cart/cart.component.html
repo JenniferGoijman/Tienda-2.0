@@ -1,7 +1,10 @@
 <div class="container">
-    <div *ngIf="this.cartService.productsInCart.length==0">No se han registrado productos en tu carrito. Haz click aqui
-        y comienza tu compra!</div>
-    <form class="container shadow p-3 mb-5 rounded">
+    <div *ngIf="this.cartService.productsInCart.length==0">
+        <h2>No se han registrado productos en tu carrito.</h2>
+        <h3 routerLink="/products">Haz click aquí y comienza tu compra!</h3>
+    </div>
+    <form class="container shadow p-3 mb-5 rounded" (submit)="insertOrder($event)"
+        *ngIf="this.cartService.productsInCart.length>0">
         <div class="card-header">
             <p>Producto</p>
             <p>Precio</p>
@@ -12,15 +15,19 @@
             <div><img src="{{product.image}}" class="productImage" alt="..." *ngIf="product.image">
                 <img src="assets/img/{{product.Category.name | lowercase}}.png" class="productImage" alt="..."
                     *ngIf="!product.image">
-                {{product.name}}</div>  
+                {{product.name}}</div>
             <div>{{product.price}}</div>
             <mat-form-field>
                 <mat-label>Cantidad</mat-label>
-                <input matInput min="0" type="number" name="{{product.id}}" ngModel>
+                <input matInput min="0" type="number" id="{{product.id}}" name="{{product.id}}" ngModel>
             </mat-form-field>
             <div>
-                <img src='assets/img/eliminar.png' class="icon-sm" (click)="deleteProduct(product.id)">
+                <img src='assets/img/eliminar.png' class="icon-sm" id="{{product.id}}"
+                    (click)="deleteProduct(product.id, $event)">
             </div>
+        </div>
+        <div class='but'>
+            <button type="submit" class="btn">+ Confirmar pedido</button>
         </div>
     </form>
 </div>
