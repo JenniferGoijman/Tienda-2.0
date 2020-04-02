@@ -22,23 +22,23 @@ export class UserComponent implements OnInit {
   }
 
   register(event) {
-    // event.preventDefault();
-    // const form = event.target;
-    // const user = {
-    //   email: form.email.value,
-    //   username: form.username.value,
-    //   password: form.password.value,
-    // }
-    // this.userService.signup(user)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.message = res.message;
-    //       setTimeout(() => this.message = "", 2500);
-    //     },
-    //     err => console.error(err)
-    //   )
-    // event.target.reset();
+    event.preventDefault();
+    const form = event.target;
+    const user = {
+      email: form.email.value,
+      username: form.username.value,
+      password: form.password.value,
+    }
+    this.userService.signup(user)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.message = res.message;
+          setTimeout(() => this.message = "", 2500);
+        },
+        err => console.error(err)
+      )
+    event.target.reset();
   }
 
   login(event) {

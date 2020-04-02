@@ -17,7 +17,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { UserComponent } from './containers/user/user.component';
-import { AbmproductsComponent } from './containers/abmproducts/abmproducts.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrdersComponent } from './components/orders/orders.component';
@@ -40,7 +39,6 @@ import { CartComponent } from './components/cart/cart.component';
     OrdersComponent,
     HomeComponent,
     UserComponent,
-    AbmproductsComponent,
     AdminComponent,
     AdminProductsComponent,
     AdminCategoriesComponent,
