@@ -1,6 +1,6 @@
 # Chin-Chin
 
-This was my fourth coding Bootcamp project: a drinks e-commerce.
+This was my fourth coding Bootcamp project: a drink products e-commerce.
 
 It was made with MySQL, ExpressJS, Angular, NodeJS & Bootstrap.
 
