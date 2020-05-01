@@ -44,9 +44,8 @@ export class CartComponent implements OnInit {
   }
   
   deleteProduct(productId, event) {
-    event.target.parentNode.parentNode.remove()
     const productsFiltered = this.cartService.productsInCart.filter(p => p.id !== productId);
     localStorage.setItem('cart', JSON.stringify(productsFiltered));
-    this.cartService.productsInCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+    this.cartService.productsInCart = productsFiltered;
   }
 }
