@@ -2,7 +2,7 @@
 
 This was my fourth coding Bootcamp project: a drink products e-commerce.
 
-It was made with MySQL, ExpressJS, Angular, NodeJS & Bootstrap.
+It was made with Angular, Bootstrap, NodeJS, ExpressJS & MySQL.
 
 ## Views
 
